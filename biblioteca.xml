@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE biblioteca SYSTEM "biblioteca.dtd">
 
-<biblioteca>
+<!-- <!DOCTYPE biblioteca SYSTEM "biblioteca.dtd"> -->
+<?xml-model href="biblioteca.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<biblioteca 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="biblioteca.xsd">
     <libro>
         <codigo>454641</codigo>
         <titulo>1984</titulo>
-        <editorial>Debolsillo</editorial>
+        <editorial>publicamos</editorial>
+        <edicion>4</edicion>
         <ISBM>9788499890944</ISBM>
         <paginas>352</paginas>
-        <autor pais="Inglaterra">George Orwell</autor>
-        <formato>Tapa blanda bolsillo</formato>
+        <autor>George Orwell</autor>
+        <formato>digital</formato>
     </libro>
     <libro>
         <codigo>456481</codigo>
         <titulo>Pedro Páramo</titulo>
-        <editorial>Rm Verlag, S.L.</editorial>
+        <editorial>editamos</editorial>
+        <edicion>5</edicion>
         <ISBM>97884934426</ISBM>
         <paginas>136</paginas>
-        <autor pais="México">Juan Rulfo</autor>
-        <formato>Tapa blanda</formato>
+        <autor>Juan Rulfo</autor>
+        <formato>papel</formato>
     </libro>
     <libro>
         <codigo>5896111</codigo>
         <titulo>Las intermitencias de la muerte</titulo>
-        <editorial>Debolsillo</editorial>
-        <edicion>Año de Edición: 2015</edicion>
+        <editorial>publicamos</editorial>
+        <edicion>15</edicion>
         <ISBM>978849062877</ISBM>
         <paginas>256</paginas>
-        <autor pais="Portugal">José Saramago</autor>
-        <formato>Tapa blanda bolsillo</formato>
+        <autor>José Saramago</autor>
+        <formato>digital</formato>
     </libro>
 </biblioteca>
