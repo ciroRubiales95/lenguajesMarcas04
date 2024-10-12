@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Esquema para la gestión de libros en una biblioteca -->
+    <xs:annotation>
+        <xs:documentation xml:lang="es">
+            Este esquema define la estructura de datos para una biblioteca. 
+            Cada libro tiene varios atributos como el código, título, editorial, edición, etc.
+        </xs:documentation>
+    </xs:annotation>
+
     <xs:element name="biblioteca">
         <xs:complexType>
             <xs:sequence>
+                <!-- Definición del elemento "libro", que puede repetirse un número ilimitado de veces -->
                 <xs:element name="libro" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="codigo" type="xs:string"></xs:element>
-                            <xs:element name="titulo" type="xs:string"></xs:element>
+                            <!-- Código único de cada libro -->
+                            <xs:element name="codigo" type="xs:string">
+                                <xs:annotation>
+                                    <xs:documentation>Identificador único del libro.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <!-- Título del libro -->
+                            <xs:element name="titulo" type="xs:string">
+                                <xs:annotation>
+                                    <xs:documentation>Título del libro.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <!-- Editorial del libro, con restricciones -->
                             <xs:element name="editorial">
+                                <xs:annotation>
+                                    <xs:documentation>
+                                        Nombre de la editorial, solo se aceptan "publicamos" o "editamos".
+                                    </xs:documentation>
+                                </xs:annotation>
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:enumeration value="publicamos"/>
@@ -16,24 +41,48 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
+
+                            <!-- Edición del libro, entre 1 y 100 -->
                             <xs:element name="edicion">
+                                <xs:annotation>
+                                    <xs:documentation>Número de edición (entre 1 y 100).</xs:documentation>
+                                </xs:annotation>
                                 <xs:simpleType>
                                     <xs:restriction base="xs:integer">
-                                        <xs:minInclusive value="1"></xs:minInclusive>
-                                        <xs:maxInclusive value="100"></xs:maxInclusive>
+                                        <xs:minInclusive value="1"/>
+                                        <xs:maxInclusive value="100"/>
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="ISBM" type="xs:string"></xs:element>
-                            <xs:element name="paginas" type="xs:integer" default="5"></xs:element>
-                            <xs:element name="autor" type="xs:string" minOccurs="1" maxOccurs="10"></xs:element>
+                            <!-- Código ISBM del libro -->
+                            <xs:element name="ISBM" type="xs:string">
+                                <xs:annotation>
+                                    <xs:documentation>Código estándar del libro (ISBM).</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <!-- Número de páginas del libro, con valor por defecto de 5 -->
+                            <xs:element name="paginas" type="xs:integer" default="5">
+                                <xs:annotation>
+                                    <xs:documentation>Número de páginas del libro. El valor por defecto es 5.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <!-- Autor o autores del libro, entre 1 y 10 -->
+                            <xs:element name="autor" type="xs:string" minOccurs="1" maxOccurs="10">
+                                <xs:annotation>
+                                    <xs:documentation>Nombre(s) del(los) autor(es), hasta un máximo de 10.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <!-- Formato del libro, digital o en papel -->
                             <xs:element name="formato">
+                                <xs:annotation>
+                                    <xs:documentation>Formato del libro: digital o en papel.</xs:documentation>
+                                </xs:annotation>
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:enumeration value="digital"/>
                                         <xs:enumeration value="papel"/>
                                     </xs:restriction>
-                                </xs:simpleType>
+                                </xs:simpleType>        
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>

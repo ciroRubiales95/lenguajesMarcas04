@@ -11,4 +11,4 @@
 <!ELEMENT formato (#PCDATA)>
 
 
-<!ATTLIST autor pais CDATA #IMPLIED>
+<!ATTLIST autor pais CDATA #REQUIRED>
